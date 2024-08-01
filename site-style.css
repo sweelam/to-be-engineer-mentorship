@@ -1,0 +1,97 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+header, .footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+.container {
+    width: 100%; /* Maximize the container width */
+    max-width: 1200px; /* Setting a reasonable maximum width */
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px; /* Add padding to ensure content does not touch the edges */
+}
+.content {
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.profile img {
+    border-radius: 50%;
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+}
+.image-gallery {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 0;
+    align-items: center;
+    width: 100%; /* Ensure the gallery takes the full width */
+    justify-content: flex-start; /* Align items to the start if less content */
+}
+.image-gallery img {
+    width: 300px; /* Increase the size of the images */
+    height: 300px;
+    margin-right: 20px;
+    transition: transform 0.3s ease-in-out;
+    object-fit: cover;
+    cursor: pointer;
+}
+.image-gallery img:hover {
+    transform: scale(1.1); /* More subtle scaling to avoid overflow issues */
+    z-index: 10;
+}
+h1, h2, h4 {
+    color: #333;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+ul li {
+    background: #e4e4e4;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+@media (max-width: 768px) {
+    .container, .image-slider {
+        width: 100%; /* Use 100% of the viewport width */
+        padding: 0 10px; /* Reduce padding on smaller screens */
+    }
+    .profile, .image-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile img, .image-gallery img {
+        margin-bottom: 10px;
+    }
+    .image-gallery img {
+        width: 200px;
+        height: 200px;
+    }
+}
+@media (max-width: 480px) {
+    header, .footer {
+        padding: 10px 0;
+    }
+    .image-gallery img {
+        width: 150px;
+        height: 150px;
+    }
+}

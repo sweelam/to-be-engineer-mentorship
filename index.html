@@ -4,82 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Be-Software-Engineer Mentorship Program</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        .content {
-            background: white;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .profile {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .profile img {
-            border-radius: 50%;
-            margin-right: 20px;
-            width: 100px;
-            height: 100px;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            background: #e4e4e4;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 1.1em;
-        }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-            background-color: #4CAF50;
-            color: white;
-        }
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-            }
-            .profile {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .profile img {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-        }
-        @media (max-width: 480px) {
-            header, .footer {
-                padding: 10px 0;
-            }
-        }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <link rel="stylesheet" href="site-style.css">
 </head>
 <body>
     <header>
@@ -118,6 +45,25 @@
                 <li><strong>Mock Interviews:</strong> Practical mock interview sessions to prepare you for real-world technical interviews.</li>
                 <li><strong>Final Session on Soft Skills:</strong> A final session focusing on the essential soft skills required to succeed in a professional environment.</li>
             </ul>
+        </div>
+
+        <!-- Image gallery for recommendations and feedback -->
+        <div class="image-gallery">
+            <a href="img/mahmoud-feedback.jpeg" data-lightbox="student-feedback" data-title="Feedback from Student 1">
+                <img src="img/mahmoud-feedback.jpeg" alt="Mahmoud Feedback">
+            </a>
+            
+            <a href="img/warda-feedback.png" data-lightbox="student-feedback" data-title="Feedback from Student 2"></a>
+                <img src="img/warda-feedback.png" alt="Warda Feedback">
+            </a>
+            
+            <a href="img/mahmoud-photo.png" data-lightbox="student-feedback" data-title="Feedback from Student 3"></a>
+                <img src="img/mahmoud-photo.png" alt="Mahmoud Photo">
+            </a>
+            
+            <a href="img/hussam-feedback.png" data-lightbox="student-feedback" data-title="Feedback from Student 4"></a>
+                <img src="img/hussam-feedback.png" alt="Mahmoud Photo">
+            </a>
         </div>
     </div>
     <div class="footer">
