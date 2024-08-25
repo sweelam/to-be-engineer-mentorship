@@ -11,11 +11,11 @@ header, .footer {
     text-align: center;
 }
 .container {
-    width: 100%; /* Ensure the container takes the full width of the viewport */
-    max-width: 1200px; /* Limiting the maximum width for larger screens */
+    width: 100%;
+    max-width: 1200px;
     margin: auto;
-    padding: 0 10px; /* Padding to prevent content from touching the edges */
-    overflow: hidden; /* Prevents any overflow from the container */
+    overflow: hidden; /* Important to hide the overflowed content */
+    position: relative; /* Needed for absolute positioning of elements inside */
 }
 .content {
     background: white;
@@ -37,24 +37,17 @@ header, .footer {
 }
 .image-gallery {
     display: flex;
-    flex-wrap: nowrap; /* Prevents wrapping of items */
-    overflow-x: auto; /* Allows horizontal scrolling */
+    flex-wrap: nowrap;
+    overflow-x: hidden; /* Hide the scrollbar */
     padding: 20px 0;
-    align-items: center;
-    width: 100%;
+    white-space: nowrap; /* Keep all images in a single line */
 }
 .image-gallery img {
-    flex: 0 0 auto; /* Ensures that the flex item does not grow or shrink */
     width: 200px;
     height: 200px;
     margin-right: 20px;
     transition: transform 0.3s ease-in-out;
     object-fit: cover;
-    cursor: pointer;
-}
-.image-gallery img:hover {
-    transform: scale(1.1);
-    z-index: 10;
 }
 h1, h2, h4 {
     color: #333;
@@ -69,22 +62,4 @@ ul li {
     padding: 10px;
     border-radius: 5px;
     font-size: 1.1em;
-}
-@media (max-width: 768px) {
-    .container {
-        padding: 0 5px;
-    }
-    .image-gallery img {
-        width: 150px;
-        height: 150px;
-    }
-}
-@media (max-width: 480px) {
-    header, .footer {
-        padding: 10px 0;
-    }
-    .image-gallery img {
-        width: 120px;
-        height: 120px;
-    }
 }

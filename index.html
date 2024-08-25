@@ -7,6 +7,22 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <link rel="stylesheet" href="site-style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const gallery = document.querySelector('.image-gallery');
+            let scrollStep = 1; // pixels to move per frame
+
+            function scrollGallery() {
+                gallery.scrollLeft += scrollStep;
+                if (gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth || gallery.scrollLeft <= 0) {
+                    scrollStep = -scrollStep; // Reverse the direction at the ends
+                }
+                requestAnimationFrame(scrollGallery);
+            }
+
+            scrollGallery(); // Start the animation
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -64,6 +80,20 @@
             <a href="img/hussam-feedback.png" data-lightbox="student-feedback-4" data-title="Feedback from Student 4">
                 <img src="img/hussam-feedback.png" alt="Hussam Photo">
             </a>
+
+            <a href="img/abdo-naser-welcome.png" data-lightbox="student-feedback-5" data-title="Feedback from Student 5">
+                <img src="img/abdo-naser-welcome.png" alt="Abdo Photo">
+            </a>
+            
+            <a href="img/mohamed-essam-welcome.png" data-lightbox="student-feedback-6" data-title="Feedback from Student 6">
+                <img src="img/mohamed-essam-welcome.png" alt="Essam Photo">
+            </a>
+
+
+            <a href="img/ahmed-adel-welcome.png" data-lightbox="student-feedback-7" data-title="Feedback from Student 7">
+                <img src="img/ahmed-adel-welcome.png" alt="Adel Photo">
+            </a>
+
         </div>
     </div>
     <div class="footer">
