@@ -6,7 +6,8 @@ const imageFilenames = [
   'hussam-feedback.png',
   'abdo-naser-welcome.png',
   'mohamed-essam-welcome.png',
-  'ahmed-adel-welcome.png'
+  'ahmed-adel-welcome.png',
+  'abdulaziz-feedback.png'
 ];
 
 // Function to dynamically create carousel items
