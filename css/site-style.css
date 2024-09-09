@@ -44,7 +44,7 @@ header, .footer {
 }
 .image-gallery img {
     width: 200px;
-    height: 200px;
+    height: 150px;
     margin-right: 20px;
     transition: transform 0.3s ease-in-out;
     object-fit: cover;
