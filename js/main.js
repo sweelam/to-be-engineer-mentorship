@@ -28,12 +28,6 @@ const testimonials = [
         name: "Hossam Hamdy",
         role: "Software Engineer",
         image: "./img/hossam-hamdy-photo.jpg",
-        text: "بفضل الله بدأت رحلة المتنورشيب مع بشمهندس Mohamed Sweelam والحقيقة انا مبسوط ومستبشر خير ومتأكد انى هتعلم كتير من البشمهندس واسأل الله ان اكون عند حسن الظن."
-    },
-    {
-        name: "Hossam Hamdy",
-        role: "Software Engineer",
-        image: "./img/hossam-hamdy-photo.jpg",
         text: "بخص الشكر البشمهندس العظيم محمد سويلم انه قبلنى معاه فى المينتورشيب واللي بيساعدنى فيها اتعلم كل ما يخص التيكنولوجى وحرصه المستمر على اختصار الطريق عليا واهتمامه لنقل خبرات وتجارب سنين ❤️"
     },
     {
