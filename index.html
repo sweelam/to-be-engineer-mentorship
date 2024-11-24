@@ -4,72 +4,218 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Be Software Engineer Mentorship Program</title>
-    <link rel="stylesheet" href="css/site-style.css">
-    <link rel="stylesheet" href="css/image-carousel.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>To Be Software Engineer Mentorship Program</h1>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>To Be Software Engineer</span>
+            </div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#program">Program</a>
+                <a href="#testimonials">Testimonials</a>
+                <!-- <button class="apply-btn">Apply Now</button> -->
+            </div>
+        </nav>
     </header>
-    <div class="container">
-        <div class="content">
-            <div class="profile">
-                <img src="me.jpeg" alt="Your Photo">
-                <div>
-                    <h2>Mentor: Mohamed Sweelam</h2>
-                    <div class="contact-info">
-                        <a href="mailto:md.sweelam@gmail.com"> <h3>Email: md.sweelam@gmail.com</h3></a>
-                        <a href="https://www.linkedin.com/in/mohamedsweelam"> <h3>LinkedIn: Mohamed Sweelam</h3></a>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transform Your Career Through Expert Mentorship</h1>
+                    <p>Join a personalized mentorship program designed to accelerate your professional growth. 
+                       Get guidance from industry experts and unlock your full potential.</p>
+                    <div class="hero-buttons">
+                        <a href="#program" class="primary-btn">Get Started</a>
+                        <a href="https://msweelam.carrd.co/" class="secondary-btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="img/mentoship-home-page.jpg" 
+                         alt="Mentor and mentee discussion">
+                    <div class="stats-card">
+                        <i class="fas fa-users"></i>
+                        <span>50+ Mentees</span>
                     </div>
                 </div>
             </div>
-            <h2>Program Overview</h2>
-            <p>
-                <h4>
-                    Welcome to the "To Be Software Engineer" mentorship program. This comprehensive program is designed to equip you with the skills and knowledge necessary to become a successful software engineer.
-                </h4>
-            </p>
-            
+        </div>
+    </section>
+
+    <section id="about" class="mentor-profile">
+        <div class="container">
+            <div class="profile-content">
+                <div class="profile-image">
+                    <img src="img/me.jpeg" 
+                         alt="Mohamed Sweelam">
+                    <div class="experience-badge">
+                        <i class="fas fa-star"></i>
+                        <span>10+ Years Experience</span>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h2>Mentor: Mohamed Sweelam</h2>
+                    <p>
+                    With over 10 years of industry experience, I've helped tons of professionals 
+                       achieve their career goals. My approach combines practical insights with 
+                       personalized guidance to ensure your success.
+                    <br/>
+                    I've comprehensive experience in designing,  developing, and optimizing distributed systems, 
+                    with a focus on cloud-native and microservices architectures across diverse industries, 
+                        including telecom, microfinance, hotel management, and customer engagement. 
+                        A proven leader adept at guiding cross-functional teams to exceed business objectives
+                    </p>
+
+                    <br/><br/>
+                    <h2>To register, you can reachout via</h2>
+                    <div class="contact-info">
+                        <a href="mailto:md.sweelam@gmail.com">
+                            <i class="fas fa-envelope"></i> md.sweelam@gmail.com
+                        </a>
+                    <br/>
+                        <a href="https://www.linkedin.com/in/mohamedsweelam">
+                            <i class="fab fa-linkedin"></i> Mohamed Sweelam
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="program" class="program-modules">
+        <div class="container">
             <h2>Program Modules</h2>
-            <ul>
-                <li><strong>Mindmap of Backend Engineer:</strong> A detailed mindmap to visualize the core concepts and skills required for a backend engineer.</li>
-                <li><strong>Setting Objectives for Joiners:</strong> Defining clear career path objectives for new joiners to help them navigate their journey in software engineering.</li>
-                <li><strong>Software Development Life Cycle:</strong> An in-depth introduction to the stages of the software development life cycle and their importance.</li>
-                <li><strong>Understanding Clean Code:</strong> Principles and practices to write clean, maintainable, and efficient code.</li>
-                <li><strong>Crafting Database Performance Enhancement:</strong> Strategies to enhance database performance for faster and more reliable applications.</li>
-                <li><strong>Domain Driven Design:</strong> Understanding what, why and how to use DDD correctly and efficiently.</li>
-                <li><strong>Building Scalable Systems:</strong> Techniques and strategies to build systems that can handle increased loads effectively.</li>
-                <li><strong>Deep-Dive into Messaging Systems:</strong> Understanding event driven , and how to utilize them for effective communication in distributed systems.</li>
-                <li><strong>System Design Snapshot:</strong> A concise overview of system design principles and best practices.</li>
-                <li><strong>Mock Interviews:</strong> Practical mock interview sessions to prepare you for real-world technical interviews.</li>
-                <li><strong>Final Session on Soft Skills:</strong> A final session focusing on the essential soft skills required to succeed in a professional environment.</li>
-            </ul>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Setting Objectives</h3>
+                    <p>Defining clear career path objectives for new joiners to help them navigate their journey.</p>
+                </div>
+
+                <div class="module-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Mindmap of Backend Engineer</h3>
+                    <p>A detailed mindmap to visualize the core concepts and skills required for a backend engineer.</p>
+                </div>
+                
+                <div class="module-card">
+                    <i class="fas fa-sync"></i>
+                    <h3>SDLC</h3>
+                    <p>An in-depth introduction to the stages of the software development life cycle and their importance.</p>
+                </div>
+                
+                <div class="module-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Clean Code</h3>
+                    <p>Principles and practices to write clean, maintainable, and efficient code.</p>
+                </div>
+                
+                <div class="module-card">
+                    <i class="fas fa-cubes"></i>
+                    <h3>Domain Driven Design</h3>
+                    <p>Understanding what, why and how to use DDD correctly and efficiently.</p>
+                </div>
+
+                <div class="module-card">
+                    <i class="fas fa-cubes"></i>
+                    <h3>Software Architecture</h3>
+                    <p>Understanding different types of software architecture and when to use every one.</p>
+                </div>
+    
+                <div class="module-card">
+                    <i class="fas fa-arrows-up-down-left-right"></i>
+                    <h3>Scalable Systems</h3>
+                    <p>Techniques and strategies to build systems that can handle increased loads effectively.</p>
+                </div>
+
+                <div class="module-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Database Performance</h3>
+                    <p>Strategies to enhance database performance for faster and more reliable applications.</p>
+                </div>
+
+                <div class="module-card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Intro to Messaging System</h3>
+                    <p>Understanding event driven , and how to utilize them for effective communication in distributed systems.</p>
+                </div>
+    
+                <div class="module-card">
+                    <i class="fas fa-diagram-project"></i>
+                    <h3>System Design</h3>
+                    <p>A concise overview of system design principles and best practices.</p>
+                </div>
+                
+
+                <div class="module-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Mock Interview</h3>
+                    <p>Practical mock interview sessions to prepare you for real-world technical interviews.</p>
+                </div>
+
+                <div class="module-card">
+                    <i class="fas fa-address-card"></i>
+                    <h3>Soft Skills</h3>
+                    <p>A final session focusing on the essential soft skills required to succeed in a professional environment.</p>
+                </div>
+            </div>
             
-            <h2 style="color: #2E8B57;">Program Scheduler Details</h2>
-            <ul>
-              <li><strong style="color: #FF6347;">Duration:</strong> <span style="color: #4682B4;">2 months</span></li>
-              <li><strong style="color: #FF6347;">Number of Sessions:</strong> <span style="color: #4682B4;">8 - 9</span></li>
-              <li><strong style="color: #FF6347;">Session Time:</strong> <span style="color: #4682B4;">45 minutes</span></li>
-            </ul>
-
+            <br/>
+            <div class="program-details">
+                <h2>Program Schedule</h2>
+                <ul>
+                    <li><strong>Duration:</strong> 2 months</li>
+                    <li><strong>Sessions:</strong> 8 - 10</li>
+                    <li><strong>Session Time:</strong> 60 minutes</li>
+                </ul>
+            </div>
         </div>
+    </section>
 
-        <!-- Image carousel for recommendations and feedback -->
-       <!-- <div class="carousel">
-            <div class="carousel-inner"></div>
-            <button class="carousel-control-prev" onclick="prevSlide()">&#10094;</button>
-            <button class="carousel-control-next" onclick="nextSlide()">&#10095;</button>
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>What My Mentees Say</h2>
+            <div class="testimonials-grid" id="testimonials-container">
+                <!-- Testimonials will be inserted here by JavaScript -->
+            </div>
         </div>
-        -->
-        <!-- Dots indicators
-         <div class="carousel-indicators"></div>
-        -->
+    </section>
 
-    </div>
-    <div class="footer">
-        <p>&copy; 2024 To Be Software Engineer. All rights reserved.</p>
-    </div>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>To Be Software Engineer</span>
+                    <p>Empowering professionals through expert mentorship and guidance.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <a href="#about">About</a>
+                    <a href="#program">Program</a>
+                    <a href="#testimonials">Testimonials</a>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>Email: md.sweelam@gmail.com</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/mohamedsweelam"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/mohamed_sweelam"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/sweelam"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 To Be Software Engineer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <script src="js/site-player.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
