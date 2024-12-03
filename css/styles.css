@@ -133,19 +133,6 @@ body {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-.card-container {
-    padding: 6px; /* Border thickness */
-    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient colors */
-    border-radius: 10px; /* Rounded corners */
-}
-
-.card-content {
-    background: var(--white); /* Card background color */
-    border-radius: 8px; /* Inner radius to match the outer container */
-    padding: 1rem; /* Inner padding */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
 .stats-card {
     position: absolute;
     bottom: -1.5rem;
