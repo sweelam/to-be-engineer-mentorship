@@ -10,7 +10,7 @@ const testimonials = [
         name: "Mahmoud Hossam",
         role: "Senior Software Engineer",
         image: "./img/mahmoud-photo.jpg",
-        text: "سلام عليكم يبشمهندس ...... انا بكلم حضرتك عشان اقولك ان التيم ليدر بتاعى خلانى اعمل architecture لبروجكت هيتعمل والحمدلله عملت كل حاجه زى ما هو طلب وكمان عملت HLD وورتهوله وابتدينا فيه وكان مبسوط جدا انى قدرت اعمل حاجه زى كده ... فانا حابب اشكر حضرتك عشان حضرتك اللى علمتنى كده وكمان كتاب design data intensive اللى حضرتك قولتلى اقرأه  فادنى كتير جدا."
+        text: "سلام عليكم يبشمهندس .... انا بكلم حضرتك عشان اقولك ان التيم ليدر بتاعى خلانى اعمل architecture لبروجكت هيتعمل والحمدلله عملت كل حاجه زى ما هو طلب وكمان عملت HLD وورتهوله وابتدينا فيه وكان مبسوط جدا انى قدرت اعمل حاجه زى كده ... فانا حابب اشكر حضرتك عشان حضرتك اللى علمتنى كده وكمان كتاب design data intensive اللى حضرتك قولتلى اقرأه  فادنى كتير جدا."
     },
     {
         name: "Abdelrahman Abdelnasser",
@@ -29,6 +29,24 @@ const testimonials = [
         role: "Software Engineer",
         image: "./img/hossam-hamdy-photo.jpg",
         text: "بخص الشكر البشمهندس العظيم محمد سويلم انه قبلنى معاه فى المينتورشيب واللي بيساعدنى فيها اتعلم كل ما يخص التيكنولوجى وحرصه المستمر على اختصار الطريق عليا واهتمامه لنقل خبرات وتجارب سنين ❤️"
+    },
+    {
+        name: "Danny Khreet",
+        role: "Team Leader",
+        image: "./img/danny-khreet.jpg",
+        text: "I just wrapped up an amazing training on modern backend development, and I have to give a huge shoutout to Mohamed Sweelam who led the session. Mohamed has a way of breaking down complex topics into simple, actionable insights that really stick. It wasn’t just about learning new tools and techniques—it was about understanding how to build better systems and think like a true developer. But what made the day even better? The people. Learning alongside such curious, driven individuals reminded me how powerful collaboration can be."
+    },
+    {
+        name: "Ibrahim Megahed",
+        role: "Senior Software Engineer",
+        image: "./img/ibrahim-megahed.jpg",
+        text: " من فترة كان أعلن مهندس محمد سويلم عن تدريب لمدة يوم عن ال Modern Backend Development. الحمد لله كنت واحد من اللي حضروا التدريب واتبسطت بالمحتوى وفعلا كان في حاجات اول مرة اسمع عنها في ال Distributed Systems بالذات وفتحتلى افاق عرفت اني محتاج اتعلمها واركز عليها. ومن منطلق من لا يشكر الناس لا يشكر الله ف جزاك الله خيرا على وقتك وترتيبك للمحتوى وصبرك وأتمنى نشوف دورات اكتر وبالتحديد عن ال Solution Architecture وبالعموم عن ال Backend Development."
+    },
+    {
+        name: "Taher Mahmoud",
+        role: "Software Engineer",
+        image: "./img/taher-mahmoud.jpg",
+        text: "I recently attended the Modern Backend Development Training, and it was an absolutely exceptional experience! The course content was incredibly comprehensive, covering both fundamental and advanced topics with precision and clarity. The representer, Mohamed Sweelam, was truly outstanding—he has a remarkable ability to break down complex and challenging concepts into simple, digestible explanations."
     },
     {
         name: "Mohamed Warda",
@@ -87,5 +105,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 behavior: 'smooth'
             });
         });
+    });
+});
+
+
+document.querySelectorAll('.dropdown-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+        const dropdown = button.parentElement;
+        dropdown.classList.toggle('open');
     });
 });

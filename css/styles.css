@@ -133,6 +133,19 @@ body {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
+.card-container {
+    padding: 6px; /* Border thickness */
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient colors */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.card-content {
+    background: var(--white); /* Card background color */
+    border-radius: 8px; /* Inner radius to match the outer container */
+    padding: 1rem; /* Inner padding */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
 .stats-card {
     position: absolute;
     bottom: -1.5rem;
@@ -325,7 +338,47 @@ body {
     color: var(--primary-color);
 }
 
-.schedule-cards {
+.dropdown {
+    margin-bottom: 1.5rem;
+}
+
+/* Dropdown Toggle Button */
+.dropdown-toggle {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    position: relative; /* Positioning context for the arrow */
+    transition: background-color 0.3s ease;
+}
+
+/* Arrow Indicator */
+.dropdown-toggle::after {
+    content: '\25BC'; /* Unicode for downward arrow */
+    font-size: 1rem;
+    color: var(--white);
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    background: var(--primary-dark);
+}
+
+.dropdown-content {
+    display: none;
+    margin-top: 1rem;
+}
+
+.dropdown-content .schedule-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
@@ -361,6 +414,11 @@ body {
 .schedule-card p {
     font-size: 1rem;
     color: var(--text-secondary);
+}
+
+/* Dropdown toggle visibility */
+.dropdown.open .dropdown-content {
+    display: block;
 }
 
 /* Responsive design for smaller screens */
