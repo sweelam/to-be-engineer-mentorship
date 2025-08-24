@@ -1,3 +1,27 @@
+// Courses data
+const courses = [
+    {
+        title: "Modern Backend Development",
+        description: "Learn the latest practices in building scalable backend systems.",
+        image: "./img/mentoship-home-page.png"
+    },
+    {
+        title: "Clean Code Mastery",
+        description: "Write maintainable and readable code with proven principles.",
+        image: "./img/registration-is-open.png"
+    }
+];
+
+function createCourseCard(course) {
+    return `
+        <div class="course-card">
+            <img src="${course.image}" alt="${course.title}">
+            <h3>${course.title}</h3>
+            <p>${course.description}</p>
+        </div>
+    `;
+}
+
 // Testimonials data
 const testimonials = [
     {
@@ -94,6 +118,11 @@ function createTestimonialCard(testimonial) {
 
 // Render testimonials
 document.addEventListener('DOMContentLoaded', () => {
+    const coursesContainer = document.getElementById('courses-container');
+    if (coursesContainer) {
+        coursesContainer.innerHTML = courses.map(createCourseCard).join('');
+    }
+
     const testimonialContainer = document.getElementById('testimonials-container');
     testimonialContainer.innerHTML = testimonials.map(createTestimonialCard).join('');
 
