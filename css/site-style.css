@@ -263,3 +263,49 @@ button:hover {
     background-color: var(--primary-color);
 }
 
+/* Udemy Courses Section */
+.courses {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.course-card {
+    background: #FFFFFF;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 240px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-card img {
+    width: 100%;
+    height: auto;
+}
+
+.course-card h3 {
+    font-size: 1.1em;
+    margin: 10px;
+}
+
+.course-card a {
+    display: block;
+    padding: 10px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.course-card a:hover {
+    text-decoration: underline;
+}
+
