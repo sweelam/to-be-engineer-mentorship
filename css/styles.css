@@ -209,6 +209,91 @@ body {
     margin-bottom: 1rem;
 }
 
+/* Courses */
+.courses {
+    padding: 5rem 0;
+    background: var(--bg-light);
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.course-card {
+    background: var(--white);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Added for better link positioning */
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Link styles for clickable cards */
+.course-card a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: opacity 0.2s ease;
+}
+
+.course-card a:hover {
+    opacity: 0.95;
+}
+
+.course-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Add a subtle zoom effect on image hover */
+.course-card:hover img {
+    transform: scale(1.02);
+}
+
+.course-card h3 {
+    font-size: 1.25rem;
+    margin: 1rem;
+    color: var(--text-primary);
+    transition: color 0.2s ease;
+}
+
+.course-card p {
+    margin: 0 1rem 1.5rem;
+    color: var(--text-secondary);
+    flex-grow: 1;
+    line-height: 1.6; /* Added for better readability */
+}
+
+/* Add a subtle hover effect for the text */
+.course-card:hover h3 {
+    color: var(--primary, #007bff); /* Use your primary color variable or fallback */
+}
+
+/* Optional: Add a "clickable" cursor indication */
+.course-card {
+    cursor: pointer;
+}
+
+/* Focus styles for accessibility */
+.course-card a:focus {
+    outline: 2px solid var(--primary, #007bff);
+    outline-offset: 2px;
+}
+
 /* Testimonials */
 .testimonials {
     padding: 5rem 0;

@@ -1,3 +1,40 @@
+// Courses data
+const courses = [
+    {
+        title: "The Utimate Guide to Backend Development",
+        description: "Become a proficient backend developer with this comprehensive course covering all essential concepts and technologies.",
+        image: "./img/modern-backend.png",
+        link: "https://www.udemy.com/course/ultimate-backend/?referralCode=3570134DDB42A4CD38A9"
+    },
+    {
+        title: "Building Scalable Systems using Spring Boot",
+        description: "Master the art of designing and implementing scalable systems with Spring Boot.",
+        image: "./img/scalable-systems.png",
+        link: "https://www.udemy.com/course/building-scalable-systems-using-spring-boot/?referralCode=CB05AE2070DF263B6393"
+    },
+{
+        title: "API Design and Management",
+        description: "Learn how to design, build, and manage robust APIs for modern applications.",
+        image: "./img/api-design.png",
+        link: "https://www.youtube.com/playlist?list=PLgAqrVq84PDcOryFRPZmhXR_FwGauGtyv"
+    }
+
+
+    
+];
+
+function createCourseCard(course) {
+    return `
+        <div class="course-card">
+            <a href="${course.link}" target="_blank" rel="noopener noreferrer">
+                <img src="${course.image}" alt="${course.title}">
+                <h3>${course.title}</h3>
+                <p>${course.description}</p>
+            </a>
+        </div>
+    `;
+}
+
 // Testimonials data
 const testimonials = [
     {
@@ -94,6 +131,11 @@ function createTestimonialCard(testimonial) {
 
 // Render testimonials
 document.addEventListener('DOMContentLoaded', () => {
+    const coursesContainer = document.getElementById('courses-container');
+    if (coursesContainer) {
+        coursesContainer.innerHTML = courses.map(createCourseCard).join('');
+    }
+
     const testimonialContainer = document.getElementById('testimonials-container');
     testimonialContainer.innerHTML = testimonials.map(createTestimonialCard).join('');
 
