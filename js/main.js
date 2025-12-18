@@ -4,7 +4,7 @@ const courses = [
     {
         title: 'Event Driven Architecture "Advanced Patterns and Practices"',
         description: "Learn how to build Event-Centric Scalable Systems?",
-        image: "./img/eda.png",
+        image: "./img/eda.jpeg",
         link: "https://www.udemy.com/course/eda-advanced-patterns-and-practices/?referralCode=4B1A85E1F31238EF7679"
     },
     {
