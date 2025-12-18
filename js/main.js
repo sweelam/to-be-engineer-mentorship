@@ -1,10 +1,11 @@
 // Courses data
 const courses = [
+    
     {
-        title: "The Utimate Guide to Backend Development",
-        description: "Become a proficient backend developer with this comprehensive course covering all essential concepts and technologies.",
-        image: "./img/modern-backend.png",
-        link: "https://www.udemy.com/course/ultimate-backend/?referralCode=3570134DDB42A4CD38A9"
+        title: 'Event Driven Architecture "Advanced Patterns and Practices"',
+        description: "Learn how to build Event-Centric Scalable Systems?",
+        image: "./img/eda.png",
+        link: "https://www.udemy.com/course/eda-advanced-patterns-and-practices/?referralCode=4B1A85E1F31238EF7679"
     },
     {
         title: "Building Scalable Systems using Spring Boot",
@@ -12,15 +13,18 @@ const courses = [
         image: "./img/scalable-systems.png",
         link: "https://www.udemy.com/course/building-scalable-systems-using-spring-boot/?referralCode=CB05AE2070DF263B6393"
     },
-{
+    {
+        title: "The Utimate Guide to Backend Development",
+        description: "Become a proficient backend developer with this comprehensive course covering all essential concepts and technologies.",
+        image: "./img/modern-backend.png",
+        link: "https://www.udemy.com/course/ultimate-backend/?referralCode=3570134DDB42A4CD38A9"
+    },
+    {
         title: "API Design and Management",
         description: "Learn how to design, build, and manage robust APIs for modern applications.",
         image: "./img/api-design.png",
         link: "https://www.youtube.com/playlist?list=PLgAqrVq84PDcOryFRPZmhXR_FwGauGtyv"
     }
-
-
-    
 ];
 
 function createCourseCard(course) {
