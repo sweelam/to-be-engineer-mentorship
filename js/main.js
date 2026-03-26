@@ -46,6 +46,35 @@ function createCourseCard(course) {
     `;
 }
 
+// Books data
+const books = [
+    {
+        title: 'The Highway Path to Scalable Systems',
+        author: 'Mohamed Sweelam & Jasser Mahmoud',
+        description: 'A Comprehensive Guide to Architectural Decisions, Principles, and Real-World Case Studies',
+        downloadUrl: 'https://leanpub.com/thehighwaypathtoscalablesystems', // TODO: replace with actual download URL
+    }
+];
+
+function createBookCard(book) {
+    return `
+        <a class="book-card" href="${book.downloadUrl}" target="_blank" rel="noopener noreferrer">
+            <div class="book-card__cover">
+                <img src="./img/book-cover.png" alt="${book.title} cover">
+            </div>
+            <div class="book-card__body">
+                <h3>${book.title}</h3>
+                <p class="book-card__author">by ${book.author}</p>
+                <p class="book-card__desc">${book.description}</p>
+                <div class="book-card__cta">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download Book
+                </div>
+            </div>
+        </a>
+    `;
+}
+
 // Testimonials data
 const testimonials = [
     {
@@ -142,6 +171,11 @@ function createTestimonialCard(testimonial) {
 
 // Render sections + init carousels
 document.addEventListener('DOMContentLoaded', () => {
+    const booksContainer = document.getElementById('books-container');
+    if (booksContainer) {
+        booksContainer.innerHTML = books.map(createBookCard).join('');
+    }
+
     const coursesTrack = document.getElementById('courses-container');
     if (coursesTrack) {
         coursesTrack.innerHTML = courses.map(createCourseCard).join('');
