@@ -133,15 +133,14 @@ function createTestimonialCard(testimonial) {
     `;
 }
 
-// Render testimonials
+// Render testimonials + carousel
 document.addEventListener('DOMContentLoaded', () => {
     const coursesContainer = document.getElementById('courses-container');
     if (coursesContainer) {
         coursesContainer.innerHTML = courses.map(createCourseCard).join('');
     }
 
-    const testimonialContainer = document.getElementById('testimonials-container');
-    testimonialContainer.innerHTML = testimonials.map(createTestimonialCard).join('');
+    initTestimonialsCarousel();
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -153,6 +152,111 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function getVisibleCount() {
+    if (window.innerWidth <= 640) return 1;
+    if (window.innerWidth <= 1024) return 3;
+    return 4;
+}
+
+function initTestimonialsCarousel() {
+    const track = document.getElementById('testimonials-container');
+    const dotsContainer = document.getElementById('carousel-dots');
+    if (!track) return;
+
+    // Duplicate cards for seamless looping
+    const cloned = [...testimonials, ...testimonials];
+    track.innerHTML = cloned.map(createTestimonialCard).join('');
+
+    let currentIndex = 0;
+    let autoplayTimer = null;
+    const totalSlides = testimonials.length;
+
+    function getCardWidth() {
+        const card = track.querySelector('.testimonial-card');
+        if (!card) return 0;
+        const gap = 20; // 1.25rem
+        return card.offsetWidth + gap;
+    }
+
+    function goTo(index, animate = true) {
+        currentIndex = index;
+        const offset = getCardWidth() * currentIndex;
+        track.style.transition = animate ? 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)' : 'none';
+        track.style.transform = `translateX(-${offset}px)`;
+        updateDots();
+    }
+
+    function next() {
+        const nextIndex = currentIndex + 1;
+        goTo(nextIndex);
+
+        // When we've scrolled through the original set, jump back silently
+        if (nextIndex >= totalSlides) {
+            setTimeout(() => goTo(0, false), 650);
+        }
+    }
+
+    // Build dots (one per original testimonial)
+    dotsContainer.innerHTML = testimonials.map((_, i) =>
+        `<button class="carousel-dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>`
+    ).join('');
+
+    function updateDots() {
+        const normalised = currentIndex % totalSlides;
+        dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === normalised);
+        });
+    }
+
+    dotsContainer.querySelectorAll('.carousel-dot').forEach(dot => {
+        dot.addEventListener('click', () => {
+            const idx = parseInt(dot.dataset.index, 10);
+            goTo(idx);
+            restartAutoplay();
+        });
+    });
+
+    function startAutoplay() {
+        autoplayTimer = setInterval(next, 3000);
+    }
+
+    function restartAutoplay() {
+        clearInterval(autoplayTimer);
+        startAutoplay();
+    }
+
+    // Arrow buttons
+    document.getElementById('carousel-prev').addEventListener('click', () => {
+        const prevIndex = currentIndex <= 0 ? totalSlides - 1 : currentIndex - 1;
+        goTo(prevIndex);
+        restartAutoplay();
+    });
+    document.getElementById('carousel-next').addEventListener('click', () => {
+        next();
+        restartAutoplay();
+    });
+
+    // Pause on hover
+    track.closest('.carousel-outer').addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+    track.closest('.carousel-outer').addEventListener('mouseleave', startAutoplay);
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e  => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+            diff > 0 ? next() : goTo(Math.max(0, currentIndex - 1));
+            restartAutoplay();
+        }
+    });
+
+    // Recalculate on resize
+    window.addEventListener('resize', () => goTo(currentIndex, false));
+
+    startAutoplay();
+}
 
 
 document.querySelectorAll('.dropdown-toggle').forEach(button => {
