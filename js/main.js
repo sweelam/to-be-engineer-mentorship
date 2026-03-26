@@ -29,13 +29,20 @@ const courses = [
 
 function createCourseCard(course) {
     return `
-        <div class="course-card">
-            <a href="${course.link}" target="_blank" rel="noopener noreferrer">
+        <a class="course-card" href="${course.link}" target="_blank" rel="noopener noreferrer">
+            <div class="course-card__image">
                 <img src="${course.image}" alt="${course.title}">
+                <span class="course-card__badge">Course</span>
+            </div>
+            <div class="course-card__body">
                 <h3>${course.title}</h3>
                 <p>${course.description}</p>
-            </a>
-        </div>
+                <div class="course-card__footer">
+                    View course
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </div>
+            </div>
+        </a>
     `;
 }
 
@@ -133,127 +140,126 @@ function createTestimonialCard(testimonial) {
     `;
 }
 
-// Render testimonials + carousel
+// Render sections + init carousels
 document.addEventListener('DOMContentLoaded', () => {
-    const coursesContainer = document.getElementById('courses-container');
-    if (coursesContainer) {
-        coursesContainer.innerHTML = courses.map(createCourseCard).join('');
+    const coursesTrack = document.getElementById('courses-container');
+    if (coursesTrack) {
+        coursesTrack.innerHTML = courses.map(createCourseCard).join('');
+        initCarousel({
+            track:        coursesTrack,
+            items:        courses,
+            dotsEl:       document.getElementById('courses-dots'),
+            prevBtn:      document.getElementById('courses-prev'),
+            nextBtn:      document.getElementById('courses-next'),
+            cardSelector: '.course-card',
+            interval:     10000,
+        });
     }
 
-    initTestimonialsCarousel();
+    const testimonialsTrack = document.getElementById('testimonials-container');
+    if (testimonialsTrack) {
+        testimonialsTrack.innerHTML = [...testimonials, ...testimonials].map(createTestimonialCard).join('');
+        initCarousel({
+            track:        testimonialsTrack,
+            items:        testimonials,
+            dotsEl:       document.getElementById('carousel-dots'),
+            prevBtn:      document.getElementById('carousel-prev'),
+            nextBtn:      document.getElementById('carousel-next'),
+            cardSelector: '.testimonial-card',
+        });
+    }
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
         });
     });
 });
 
-function getVisibleCount() {
-    if (window.innerWidth <= 640) return 1;
-    if (window.innerWidth <= 1024) return 3;
-    return 4;
-}
-
-function initTestimonialsCarousel() {
-    const track = document.getElementById('testimonials-container');
-    const dotsContainer = document.getElementById('carousel-dots');
-    if (!track) return;
-
-    // Duplicate cards for seamless looping
-    const cloned = [...testimonials, ...testimonials];
-    track.innerHTML = cloned.map(createTestimonialCard).join('');
-
+/**
+ * Generic seamless-loop horizontal carousel.
+ * Items must already be rendered (doubled for looping) inside `track`.
+ */
+function initCarousel({ track, items, dotsEl, prevBtn, nextBtn, cardSelector, interval = 3000 }) {
+    const totalSlides = items.length;
     let currentIndex = 0;
     let autoplayTimer = null;
-    const totalSlides = testimonials.length;
+
+    // Ensure cards are doubled for seamless looping
+    const existingCards = track.querySelectorAll(cardSelector);
+    if (existingCards.length === totalSlides) {
+        existingCards.forEach(card => track.appendChild(card.cloneNode(true)));
+    }
 
     function getCardWidth() {
-        const card = track.querySelector('.testimonial-card');
+        const card = track.querySelector(cardSelector);
         if (!card) return 0;
-        const gap = 20; // 1.25rem
+        const gap = parseFloat(getComputedStyle(track).gap) || 20;
         return card.offsetWidth + gap;
     }
 
     function goTo(index, animate = true) {
         currentIndex = index;
-        const offset = getCardWidth() * currentIndex;
         track.style.transition = animate ? 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)' : 'none';
-        track.style.transform = `translateX(-${offset}px)`;
+        track.style.transform = `translateX(-${getCardWidth() * currentIndex}px)`;
         updateDots();
     }
 
     function next() {
         const nextIndex = currentIndex + 1;
         goTo(nextIndex);
-
-        // When we've scrolled through the original set, jump back silently
         if (nextIndex >= totalSlides) {
             setTimeout(() => goTo(0, false), 650);
         }
     }
 
-    // Build dots (one per original testimonial)
-    dotsContainer.innerHTML = testimonials.map((_, i) =>
-        `<button class="carousel-dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>`
-    ).join('');
+    function prev() {
+        goTo(currentIndex <= 0 ? totalSlides - 1 : currentIndex - 1);
+    }
+
+    // Dots
+    if (dotsEl) {
+        dotsEl.innerHTML = items.map((_, i) =>
+            `<button class="carousel-dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>`
+        ).join('');
+        dotsEl.querySelectorAll('.carousel-dot').forEach(dot => {
+            dot.addEventListener('click', () => { goTo(parseInt(dot.dataset.index, 10)); restartAutoplay(); });
+        });
+    }
 
     function updateDots() {
-        const normalised = currentIndex % totalSlides;
-        dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-            dot.classList.toggle('active', i === normalised);
-        });
+        if (!dotsEl) return;
+        const norm = currentIndex % totalSlides;
+        dotsEl.querySelectorAll('.carousel-dot').forEach((dot, i) =>
+            dot.classList.toggle('active', i === norm)
+        );
     }
 
-    dotsContainer.querySelectorAll('.carousel-dot').forEach(dot => {
-        dot.addEventListener('click', () => {
-            const idx = parseInt(dot.dataset.index, 10);
-            goTo(idx);
-            restartAutoplay();
-        });
-    });
-
-    function startAutoplay() {
-        autoplayTimer = setInterval(next, 3000);
-    }
-
-    function restartAutoplay() {
-        clearInterval(autoplayTimer);
-        startAutoplay();
-    }
-
-    // Arrow buttons
-    document.getElementById('carousel-prev').addEventListener('click', () => {
-        const prevIndex = currentIndex <= 0 ? totalSlides - 1 : currentIndex - 1;
-        goTo(prevIndex);
-        restartAutoplay();
-    });
-    document.getElementById('carousel-next').addEventListener('click', () => {
-        next();
-        restartAutoplay();
-    });
+    // Arrows
+    if (prevBtn) prevBtn.addEventListener('click', () => { prev(); restartAutoplay(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { next(); restartAutoplay(); });
 
     // Pause on hover
-    track.closest('.carousel-outer').addEventListener('mouseenter', () => clearInterval(autoplayTimer));
-    track.closest('.carousel-outer').addEventListener('mouseleave', startAutoplay);
+    const outer = track.closest('.carousel-outer');
+    if (outer) {
+        outer.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+        outer.addEventListener('mouseleave', startAutoplay);
+    }
 
-    // Touch/swipe support
+    // Touch / swipe
     let touchStartX = 0;
     track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', e  => {
+    track.addEventListener('touchend', e => {
         const diff = touchStartX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 40) {
-            diff > 0 ? next() : goTo(Math.max(0, currentIndex - 1));
-            restartAutoplay();
-        }
+        if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); restartAutoplay(); }
     });
 
-    // Recalculate on resize
     window.addEventListener('resize', () => goTo(currentIndex, false));
+
+    function startAutoplay() { autoplayTimer = setInterval(next, interval); }
+    function restartAutoplay() { clearInterval(autoplayTimer); startAutoplay(); }
 
     startAutoplay();
 }
