@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Be Software Engineer Mentorship Program</title>
+    <title>Mohamed Sweelam — Software Engineer, Author & Mentor</title>
+    <meta name="description" content="Mohamed Sweelam — Software Engineer specializing in distributed systems, cloud-native architectures, and AI enablement. Author, mentor, and technical trainer.">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,15 +17,23 @@
     <header class="main-header">
         <nav class="nav-container">
             <div class="logo">
-                <i class="fas fa-graduation-cap"></i>
-                <span>To Be Software Engineer</span>
+                <span class="logo-mark">MS</span>
+                <span>Mohamed Sweelam</span>
             </div>
-            <div class="nav-links">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
                 <a href="#about">About</a>
-                <a href="#program">Program</a>
-                <a href="#courses">Courses</a>
+                <a href="#services">Services</a>
+                <a href="#courses">Courses & Books</a>
+                <a href="#news">News</a>
+                <a href="https://msweelam.hashnode.dev" target="_blank" rel="noopener noreferrer" class="nav-external">
+                    Blog <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
                 <a href="#testimonials">Testimonials</a>
-                <!-- <button class="apply-btn">Apply Now</button> -->
             </div>
         </nav>
     </header>
@@ -33,21 +42,27 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Transform Your Career Through Expert Mentorship</h1>
-                    <p>Join a personalized mentorship program designed to accelerate your professional growth.
-                        Get guidance from industry expert and unlock your full potential.</p>
+                    <div class="hero-greeting">Hi, I'm Mohamed Sweelam</div>
+                    <h1>Building Scalable Systems & Empowering Engineers</h1>
+                    <p>Software Engineer with 10+ years of experience in distributed systems, cloud-native architectures, and AI enablement. I write, teach, and build — helping teams and engineers level up.</p>
                     <div class="hero-buttons">
-                        <a href="#program" class="primary-btn">Get Started</a>
-                        <a href="https://msweelam.carrd.co/" class="secondary-btn">Learn More</a>
+                        <a href="#services" class="primary-btn">Explore Services</a>
+                        <a href="https://msweelam.hashnode.dev" target="_blank" rel="noopener noreferrer" class="secondary-btn">
+                            Read My Blog <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    <div class="hero-social">
+                        <a href="https://www.linkedin.com/in/mohamedsweelam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/mohamed_sweelam" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/sweelam" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.youtube.com/@mohamedsweelam" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <!-- <img src="img/mentoship-home-page.png" alt="Mentor and mentee discussion"> -->
-                    <img src="img/menthorship-track.png" alt="Mentor and mentee discussion">
-
+                    <img src="img/me.png" alt="Mohamed Sweelam">
                     <div class="stats-card">
-                        <i class="fas fa-users"></i>
-                        <span>50+ Mentees</span>
+                        <i class="fas fa-star"></i>
+                        <span>10+ Years Experience</span>
                     </div>
                 </div>
             </div>
@@ -58,15 +73,15 @@
         <div class="container">
             <div class="profile-content">
                 <div class="profile-image">
-                    <img src="img/me.png" alt="Mohamed Sweelam">
+                    <img src="img/menthorship-track.png" alt="Mohamed Sweelam's Work">
                     <div class="experience-badge">
-                        <i class="fas fa-star"></i>
-                        <span>10+ Years Experience</span>
+                        <i class="fas fa-users"></i>
+                        <span>50+ Engineers Mentored</span>
                     </div>
                 </div>
                 <div class="profile-info">
-                    <div class="profile-info__tag">Available for Mentorship</div>
-                    <h1>Engineer, Mentor, and Author</h1>
+                    <div class="profile-info__tag">Open to Collaborate</div>
+                    <h1>Engineer, Mentor & Author</h1>
 
                     <p>With over a decade of experience in the software industry, I have helped numerous professionals achieve their career goals.
                         My approach combines practical insights with personalized guidance to drive your success.</p>
@@ -83,7 +98,7 @@
                     </div>
 
                     <div class="profile-info__contact">
-                        <p class="profile-info__contact-label">To register, reach out via</p>
+                        <p class="profile-info__contact-label">Get in touch</p>
                         <a href="mailto:md.sweelam@gmail.com" class="profile-info__email">
                             <i class="fas fa-envelope"></i>
                             md.sweelam@gmail.com
@@ -92,281 +107,151 @@
                 </div>
             </div>
         </div>
-        <section id="courses" class="courses">
-            <div class="container">
-                <h2>Online Courses</h2>
-                <div class="carousel-outer">
-                    <button class="carousel-arrow carousel-arrow--left" id="courses-prev" aria-label="Previous">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-                    </button>
-                    <div class="carousel-wrapper">
-                        <div class="carousel-track" id="courses-container"></div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Services</h2>
+            <p class="section-subtitle">How I can help you and your team grow</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-compass"></i>
                     </div>
-                    <button class="carousel-arrow carousel-arrow--right" id="courses-next" aria-label="Next">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                    </button>
-                </div>
-                <div class="carousel-dots" id="courses-dots"></div>
-            </div>
-        </section>
-
-        <section id="books" class="books">
-            <div class="container">
-                <h2>Books</h2>
-                <div class="books-grid" id="books-container"></div>
-            </div>
-        </section>
-
-        <section id="program" class="program-modules">
-            <div class="container">
-                <h2>Program Modules</h2>
-                <div class="modules-grid">
-                    <div class="module-card">
-                        <i class="fas fa-bullseye"></i>
-                        <h3>Setting Objectives</h3>
-                        <p>Defining clear career path objectives for new joiners to help them navigate their journey.
-                        </p>
-                    </div>
-
-                    <div class="module-card">
-                        <i class="fas fa-network-wired"></i>
-                        <h3>Mindmap of Backend Engineer</h3>
-                        <p>A detailed mindmap to visualize the core concepts and skills required for a backend engineer.
-                        </p>
-                    </div>
-
-
-                    <div class="module-card">
-                        <i class="fas fa-sync"></i>
-                        <h3>SDLC</h3>
-                        <p>An in-depth introduction to the stages of the software development life cycle and their
-                            importance.</p>
-                    </div>
-
-
-                    <div class="module-card">
-                        <i class="fas fa-code"></i>
-                        <h3>Clean Code</h3>
-                        <p>Principles and practices to write clean, maintainable, and efficient code.</p>
-                    </div>
-
-
-                    <div class="module-card">
-                        <i class="fas fa-cubes"></i>
-                        <h3>Domain Driven Design</h3>
-                        <p>Understanding what, why and how to use DDD correctly and efficiently.</p>
-                    </div>
-
-                    <div class="module-card">
-                        <i class="fas fa-cubes"></i>
-                        <h3>Software Architecture</h3>
-                        <p>Understanding different types of software architecture and when to use every one.</p>
-                    </div>
-
-
-                    <div class="module-card">
-                        <i class="fas fa-arrows-up-down-left-right"></i>
-                        <h3>Scalable Systems</h3>
-                        <p>Techniques and strategies to build systems that can handle increased loads effectively.</p>
-                    </div>
-
-                    <div class="module-card">
-                        <i class="fas fa-database"></i>
-                        <h3>Database Performance</h3>
-                        <p>Strategies to enhance database performance for faster and more reliable applications.</p>
-                    </div>
-
-
-                    <div class="module-card">
-                        <i class="fas fa-tasks"></i>
-                        <h3>Intro to Messaging System</h3>
-                        <p>Understanding event driven , and how to utilize them for effective communication in
-                            distributed
-                            systems.</p>
-                    </div>
-
-
-                    <div class="module-card">
-                        <i class="fas fa-diagram-project"></i>
-                        <h3>System Design</h3>
-                        <p>A concise overview of system design principles and best practices.</p>
-                    </div>
-
-
-                    <div class="module-card">
-                        <i class="fas fa-comments"></i>
-                        <h3>Mock Interview</h3>
-                        <p>Practical mock interview sessions to prepare you for real-world technical interviews.</p>
-                    </div>
-
-
-                    <div class="module-card">
-                        <i class="fas fa-address-card"></i>
-                        <h3>Soft Skills</h3>
-                        <p>A final session focusing on the essential soft skills required to succeed in a professional
-                            environment.</p>
-                    </div>
+                    <h3>Mentorship Program</h3>
+                    <p>Personalized 1-on-1 mentorship to accelerate your career as a software engineer. From juniors to seniors — structured guidance tailored to your goals.</p>
+                    <ul class="service-highlights">
+                        <li>Career path planning</li>
+                        <li>Code & design reviews</li>
+                        <li>Mock interviews</li>
+                    </ul>
                 </div>
 
-            </div>
-        </section>
-
-        <section id="program" class="program-modules">
-            <div class="container">
-                <h2>Programs Schedules</h2>
-
-                <!-- Dropdown for Full Program -->
-                <div class="dropdown">
-                    <button class="dropdown-toggle">Full Program</button>
-                    <div class="dropdown-content">
-                        <div class="schedule-cards">
-                            <div class="schedule-card">
-                                <i class="fas fa-calendar-day"></i>
-                                <h3>Duration</h3>
-                                <p>2 months</p>
-                            </div>
-                            <div class="schedule-card">
-                                <i class="fas fa-calendar-check"></i>
-                                <h3>Sessions</h3>
-                                <p>8 - 10</p>
-                            </div>
-                            <div class="schedule-card">
-                                <i class="fas fa-clock"></i>
-                                <h3>Session Time</h3>
-                                <p>60 minutes</p>
-                            </div>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
                     </div>
+                    <h3>Technical Training</h3>
+                    <p>Workshops and training sessions on backend development, system design, distributed systems, and software architecture for teams and individuals.</p>
+                    <ul class="service-highlights">
+                        <li>On-site & remote sessions</li>
+                        <li>Hands-on workshops</li>
+                        <li>Custom curriculum</li>
+                    </ul>
                 </div>
 
-                <!-- Dropdown for One-Day Training -->
-                <div class="dropdown">
-                    <button class="dropdown-toggle">One-Day Training</button>
-                    <div class="dropdown-content">
-                        <div class="schedule-cards">
-                            <div class="schedule-card">
-                                <i class="fas fa-calendar-day"></i>
-                                <h3>Duration</h3>
-                                <p>1 Day</p>
-                            </div>
-                            <div class="schedule-card">
-                                <i class="fas fa-calendar-check"></i>
-                                <h3>Sessions</h3>
-                                <p>3</p>
-                            </div>
-                            <div class="schedule-card">
-                                <i class="fas fa-clock"></i>
-                                <h3>Session Time</h3>
-                                <p>140 minutes</p>
-                            </div>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
                     </div>
+                    <h3>Technical Consulting</h3>
+                    <p>Architecture reviews, system design consultations, and technical strategy for startups and engineering teams tackling scale challenges.</p>
+                    <ul class="service-highlights">
+                        <li>Architecture assessment</li>
+                        <li>Scalability planning</li>
+                        <li>Technology selection</li>
+                    </ul>
                 </div>
 
-                <div class="dropdown">
-                    <button class="dropdown-toggle">How to be Software Engineer?</button>
-                    <div class="dropdown-content">
-                        <div class="schedule-cards">
-                            <div class="schedule-card">
-                                <i class="fas fa-calendar-check"></i>
-                                <h3>Sessions</h3>
-                                <p>1</p>
-                            </div>
-                            <div class="schedule-card">
-                                <i class="fas fa-clock"></i>
-                                <h3>Session Time</h3>
-                                <p>60 minutes</p>
-                            </div>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microphone-alt"></i>
                     </div>
-                </div>
-
-                <div class="dropdown">
-                    <button class="dropdown-toggle">How to be Senior Software Engineer?</button>
-                    <div class="dropdown-content">
-                        <div class="schedule-cards">
-                            <div class="schedule-card">
-                                <i class="fas fa-calendar-check"></i>
-                                <h3>Sessions</h3>
-                                <p>1</p>
-                            </div>
-                            <div class="schedule-card">
-                                <i class="fas fa-clock"></i>
-                                <h3>Session Time</h3>
-                                <p>90 minutes</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <button class="dropdown-toggle">How to be Lead Software Engineer?</button>
-                    <div class="dropdown-content">
-                        <div class="schedule-cards">
-                            <div class="schedule-card">
-                                <i class="fas fa-calendar-check"></i>
-                                <h3>Sessions</h3>
-                                <p>1</p>
-                            </div>
-                            <div class="schedule-card">
-                                <i class="fas fa-clock"></i>
-                                <h3>Session Time</h3>
-                                <p>90 minutes</p>
-                            </div>
-                        </div>
-                    </div>
+                    <h3>Speaking & Content</h3>
+                    <p>Conference talks, podcast appearances, and technical content creation on distributed systems, backend engineering, and career growth.</p>
+                    <ul class="service-highlights">
+                        <li>Conference speaking</li>
+                        <li>Technical writing</li>
+                        <li>YouTube content</li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="testimonials" class="testimonials">
-            <div class="container">
-                <h2>What My Mentees Say</h2>
-                <div class="carousel-outer">
-                    <button class="carousel-arrow carousel-arrow--left" id="carousel-prev" aria-label="Previous">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-                    </button>
-                    <div class="carousel-wrapper">
-                        <div class="carousel-track" id="testimonials-container"></div>
-                    </div>
-                    <button class="carousel-arrow carousel-arrow--right" id="carousel-next" aria-label="Next">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                    </button>
+    <section id="courses" class="courses">
+        <div class="container">
+            <h2>Online Courses</h2>
+            <p class="section-subtitle">Learn at your own pace</p>
+            <div class="carousel-outer">
+                <button class="carousel-arrow carousel-arrow--left" id="courses-prev" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="courses-container"></div>
                 </div>
-                <div class="carousel-dots" id="carousel-dots"></div>
+                <button class="carousel-arrow carousel-arrow--right" id="courses-next" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
             </div>
-        </section>
+            <div class="carousel-dots" id="courses-dots"></div>
+        </div>
+    </section>
+
+    <section id="books" class="books">
+        <div class="container">
+            <h2>Books</h2>
+            <div class="books-grid" id="books-container"></div>
+        </div>
+    </section>
+
+    <section id="news" class="news">
+        <div class="container">
+            <h2>News & Announcements</h2>
+            <p class="section-subtitle">Latest updates and happenings</p>
+            <div class="news-grid" id="news-container"></div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>What People Say</h2>
+            <p class="section-subtitle">Feedback from mentees and trainees</p>
+            <div class="carousel-outer">
+                <button class="carousel-arrow carousel-arrow--left" id="carousel-prev" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="testimonials-container"></div>
+                </div>
+                <button class="carousel-arrow carousel-arrow--right" id="carousel-next" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+            </div>
+            <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
     </section>
 
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>To Be Software Engineer</span>
-                    <p>Empowering professionals through expert mentorship and guidance.</p>
+                    <span class="logo-mark">MS</span>
+                    <span>Mohamed Sweelam</span>
+                    <p>Software Engineer, Author & Mentor. Building scalable systems and empowering engineers.</p>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <a href="#about">About</a>
-                    <a href="#program">Program</a>
+                    <a href="#services">Services</a>
                     <a href="#courses">Courses</a>
-                    <a href="#testimonials">Testimonials</a>
+                    <a href="#news">News</a>
+                    <a href="https://msweelam.hashnode.dev" target="_blank" rel="noopener noreferrer">Blog</a>
                 </div>
                 <div class="footer-contact">
-                    <h3>Contact</h3>
-                    <p>Email: md.sweelam@gmail.com</p>
+                    <h3>Connect</h3>
+                    <p>md.sweelam@gmail.com</p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/mohamedsweelam"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://x.com/mohamed_sweelam"><i class="fab fa-twitter"></i></a>
-                        <a href="https://github.com/sweelam"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mohamedsweelam" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/mohamed_sweelam" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/sweelam" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.youtube.com/@mohamedsweelam" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://msweelam.hashnode.dev" aria-label="Hashnode"><i class="fab fa-hashnode"></i></a>
                     </div>
                 </div>
             </div>
-            <script src="https://static.elfsight.com/platform/platform.js" async></script>
-            <div class="elfsight-app-eaa64c24-8d1c-4015-b113-7b8432de11d3" data-elfsight-app-lazy></div>
             <div class="footer-bottom">
-                <p>&copy; 2024 To Be Software Engineer. All rights reserved.</p>
+                <p>&copy; 2025 Mohamed Sweelam. All rights reserved.</p>
             </div>
         </div>
     </footer>

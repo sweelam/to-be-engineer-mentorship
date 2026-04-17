@@ -1,6 +1,5 @@
 // Courses data
 const courses = [
-    
     {
         title: 'Event Driven Architecture "Advanced Patterns and Practices"',
         description: "Learn how to build Event-Centric Scalable Systems?",
@@ -52,7 +51,7 @@ const books = [
         title: 'The Highway Path to Scalable Systems',
         author: 'Mohamed Sweelam & Jasser Mahmoud',
         description: 'A Comprehensive Guide to Architectural Decisions, Principles, and Real-World Case Studies',
-        downloadUrl: 'https://leanpub.com/thehighwaypathtoscalablesystems', // TODO: replace with actual download URL
+        downloadUrl: 'https://leanpub.com/thehighwaypathtoscalablesystems',
     }
 ];
 
@@ -75,6 +74,63 @@ function createBookCard(book) {
     `;
 }
 
+// ========================================================
+// NEWS & ANNOUNCEMENTS
+// To add a new announcement, just add an object to this array.
+// Types: "announcement", "release", "event", "update"
+// ========================================================
+const news = [
+    {
+        type: "announcement",
+        date: "2025-04-15",
+        title: "Launching msweelam.dev",
+        description: "Excited to announce the launch of my new personal website! A central hub for my services, courses, blog, and everything I'm working on.",
+        link: null,
+        linkText: null,
+    },
+    {
+        type: "release",
+        date: "2025-03-01",
+        title: "New Course: Event Driven Architecture",
+        description: "My latest Udemy course on advanced EDA patterns and practices is now live. Learn how to build event-centric scalable systems.",
+        link: "https://www.udemy.com/course/eda-advanced-patterns-and-practices/?referralCode=4B1A85E1F31238EF7679",
+        linkText: "Enroll Now",
+    },
+    {
+        type: "event",
+        date: "2025-02-10",
+        title: "Mentorship Program — New Cohort Open",
+        description: "Registration is now open for the next mentorship cohort. Limited spots available for engineers looking to level up their backend and system design skills.",
+        link: "mailto:md.sweelam@gmail.com",
+        linkText: "Apply via Email",
+    },
+];
+
+function formatDate(dateStr) {
+    const date = new Date(dateStr + 'T00:00:00');
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function createNewsCard(item) {
+    const linkHtml = item.link
+        ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="news-card__link">
+               ${item.linkText || 'Learn more'} <i class="fas fa-arrow-right"></i>
+           </a>`
+        : '';
+
+    return `
+        <div class="news-card">
+            <div class="news-card__header">
+                <span class="news-card__type news-card__type--${item.type}">${item.type}</span>
+                <span class="news-card__date">${formatDate(item.date)}</span>
+            </div>
+            <h3>${item.title}</h3>
+            <p>${item.description}</p>
+            ${linkHtml}
+        </div>
+    `;
+}
+
 // Testimonials data
 const testimonials = [
     {
@@ -93,7 +149,7 @@ const testimonials = [
         name: "Abdelrahman Abdelnasser",
         role: "ACPC Finalist",
         image: "./img/abdelrhman-abdelnasser-photo.jpg",
-        text: "With great pride and pleasure, I announce my commencement in a special mentorship program with Engineer Mohamed Sweelam. I am committed to giving my best effort and working diligently to achieve continuous development and success ❤️"
+        text: "With great pride and pleasure, I announce my commencement in a special mentorship program with Engineer Mohamed Sweelam. I am committed to giving my best effort and working diligently to achieve continuous development and success."
     },
     {
         name: "Abdelrahman Abdelnasser",
@@ -105,13 +161,13 @@ const testimonials = [
         name: "Hossam Hamdy",
         role: "Software Engineer",
         image: "./img/hossam-hamdy-photo.jpg",
-        text: "بخص الشكر البشمهندس العظيم محمد سويلم انه قبلنى معاه فى المينتورشيب واللي بيساعدنى فيها اتعلم كل ما يخص التيكنولوجى وحرصه المستمر على اختصار الطريق عليا واهتمامه لنقل خبرات وتجارب سنين ❤️"
+        text: "بخص الشكر البشمهندس العظيم محمد سويلم انه قبلنى معاه فى المينتورشيب واللي بيساعدنى فيها اتعلم كل ما يخص التيكنولوجى وحرصه المستمر على اختصار الطريق عليا واهتمامه لنقل خبرات وتجارب سنين."
     },
     {
         name: "Danny Khreet",
         role: "Team Leader",
         image: "./img/danny-khreet.jpg",
-        text: "I just wrapped up an amazing training on modern backend development, and I have to give a huge shoutout to Mohamed Sweelam who led the session. Mohamed has a way of breaking down complex topics into simple, actionable insights that really stick. It wasn’t just about learning new tools and techniques—it was about understanding how to build better systems and think like a true developer. But what made the day even better? The people. Learning alongside such curious, driven individuals reminded me how powerful collaboration can be."
+        text: "I just wrapped up an amazing training on modern backend development, and I have to give a huge shoutout to Mohamed Sweelam who led the session. Mohamed has a way of breaking down complex topics into simple, actionable insights that really stick. It wasn't just about learning new tools and techniques—it was about understanding how to build better systems and think like a true developer. But what made the day even better? The people. Learning alongside such curious, driven individuals reminded me how powerful collaboration can be."
     },
     {
         name: "Ibrahim Megahed",
@@ -129,14 +185,15 @@ const testimonials = [
         name: "Mohamed Warda",
         role: "Software Engineer",
         image: "./img/warda-photo.jpg",
-        text: "Having a mentor is like having a compass in the wilderness.” I'm immensely grateful to have Eng. Mohamed Sweelam as my Mentor, his willingness to share his expertise and invest his time in mentoring me has made a profound impact on both my career and personal development, I am truly grateful for the opportunity ❤️."
+        text: "Having a mentor is like having a compass in the wilderness. I'm immensely grateful to have Eng. Mohamed Sweelam as my Mentor, his willingness to share his expertise and invest his time in mentoring me has made a profound impact on both my career and personal development, I am truly grateful for the opportunity."
     },
     {
         name: "Ahmed Adel",
         role: "Software Engineer",
         image: "./img/ahmed-adel-photo.jpg",
-        text: "I'm excited to announce that I've started a mentorship program with Engineer Mohamed Sweelam. I am dedicated to giving my best effort to achieve continuous growth and success ❤️"
-    },{
+        text: "I'm excited to announce that I've started a mentorship program with Engineer Mohamed Sweelam. I am dedicated to giving my best effort to achieve continuous growth and success."
+    },
+    {
         name: "Mohamed Essam",
         role: "Java Developer",
         image: "./img/mohamed-essam-photo.jpg",
@@ -150,7 +207,6 @@ const testimonials = [
     }
 ];
 
-// Function to create testimonial cards
 function createTestimonialCard(testimonial) {
     return `
         <div class="testimonial-card">
@@ -171,11 +227,13 @@ function createTestimonialCard(testimonial) {
 
 // Render sections + init carousels
 document.addEventListener('DOMContentLoaded', () => {
+    // Books
     const booksContainer = document.getElementById('books-container');
     if (booksContainer) {
         booksContainer.innerHTML = books.map(createBookCard).join('');
     }
 
+    // Courses carousel
     const coursesTrack = document.getElementById('courses-container');
     if (coursesTrack) {
         coursesTrack.innerHTML = courses.map(createCourseCard).join('');
@@ -190,6 +248,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // News
+    const newsContainer = document.getElementById('news-container');
+    if (newsContainer) {
+        newsContainer.innerHTML = news.map(createNewsCard).join('');
+    }
+
+    // Testimonials carousel
     const testimonialsTrack = document.getElementById('testimonials-container');
     if (testimonialsTrack) {
         testimonialsTrack.innerHTML = [...testimonials, ...testimonials].map(createTestimonialCard).join('');
@@ -207,9 +272,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu if open
+                document.getElementById('nav-links').classList.remove('open');
+            }
         });
     });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+    }
 });
 
 /**
@@ -297,11 +376,3 @@ function initCarousel({ track, items, dotsEl, prevBtn, nextBtn, cardSelector, in
 
     startAutoplay();
 }
-
-
-document.querySelectorAll('.dropdown-toggle').forEach(button => {
-    button.addEventListener('click', () => {
-        const dropdown = button.parentElement;
-        dropdown.classList.toggle('open');
-    });
-});
