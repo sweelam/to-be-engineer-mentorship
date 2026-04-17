@@ -98,26 +98,24 @@ button:focus:not(:focus-visible) { outline: none; }
     color: var(--text);
 }
 
-.logo-mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    border-radius: 0.4rem;
-    font-weight: 800;
-    font-size: 0.75rem;
-    color: var(--white);
-    letter-spacing: 0.02em;
+/* ─── LOGO IMAGE CROP ────────────────────────────────── */
+/* Zooms in ~25%, centers H, shifts up ~9% to remove Gemini
+   watermark (bottom-right) and trim side whitespace.        */
+.logo-img-wrap {
+    width: 144px;
+    height: 60px;
+    overflow: hidden;
+    position: relative;
     flex-shrink: 0;
 }
 
-.logo-text {
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: -0.01em;
+.logo-img-wrap img {
+    position: absolute;
+    width: 125%;
+    left: 50%;
+    transform: translate(-50%, -9%);
 }
+
 
 .nav-links {
     display: flex;
