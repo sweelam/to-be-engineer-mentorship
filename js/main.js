@@ -1,6 +1,33 @@
 /* main.js — shared across all pages */
 
+// ── Theme toggle ──────────────────────────────────────────
+function applyTheme(dark) {
+    const html = document.documentElement;
+    if (dark) {
+        html.setAttribute('data-theme', 'dark');
+    } else {
+        html.removeAttribute('data-theme');
+    }
+    document.querySelectorAll('.site-logo').forEach(img => {
+        img.src = dark ? img.dataset.dark : img.dataset.light;
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    // ── Theme toggle ──────────────────────────────────────
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(savedTheme === 'dark' || (!savedTheme && prefersDark));
+
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const nowDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            applyTheme(!nowDark);
+            localStorage.setItem('theme', !nowDark ? 'dark' : 'light');
+        });
+    }
 
     // ── Mobile nav toggle ─────────────────────────────────
     const toggle  = document.getElementById('nav-toggle');

@@ -19,6 +19,82 @@
     --ease:          0.2s ease;
 }
 
+[data-theme="dark"] {
+    --bg:            #0F172A;
+    --bg-card:       #1E293B;
+    --bg-card-hover: #243044;
+    --border:        rgba(255, 255, 255, 0.08);
+    --border-hover:  rgba(124, 58, 237, 0.5);
+    --text:          #F1F5F9;
+    --text-secondary:#CBD5E1;
+    --text-muted:    #64748B;
+    --shadow-glow:   0 0 40px rgba(124, 58, 237, 0.2);
+    --shadow-card:   0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] body {
+    background-image:
+        radial-gradient(ellipse 80% 55% at 50% -5%, rgba(139, 92, 246, 0.15) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 85% 60%,  rgba(8, 145, 178, 0.1) 0%, transparent 55%);
+}
+
+[data-theme="dark"] .site-header {
+    background: rgba(15, 23, 42, 0.92);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .section-alt {
+    background: linear-gradient(180deg, #1a2744 0%, #0F172A 100%);
+}
+
+[data-theme="dark"] .section-alt::before {
+    background: linear-gradient(180deg, transparent 0%, rgba(139, 92, 246, 0.05) 50%, transparent 100%);
+}
+
+[data-theme="dark"] .site-footer {
+    background: #080f1f;
+}
+
+[data-theme="dark"] .nav-links {
+    background: rgba(15, 23, 42, 0.98);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track { background: #1E293B; }
+
+[data-theme="dark"] .hero-photo img {
+    background:
+        linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+        linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%) border-box;
+}
+
+/* ─── THEME TOGGLE ───────────────────────────────────── */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--ease);
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    color: var(--primary);
+    border-color: var(--border-hover);
+    background: rgba(124, 58, 237, 0.07);
+}
+
+.theme-toggle .icon-sun  { display: none; }
+.theme-toggle .icon-moon { display: block; }
+
+[data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
 /* ─── RESET ──────────────────────────────────────────── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -376,6 +452,12 @@ button:focus:not(:focus-visible) { outline: none; }
     border: 1px solid rgba(124, 58, 237, 0.2);
     border-radius: 999px;
     padding: 0.3rem 0.8rem;
+}
+
+[data-theme="dark"] .pill {
+    color: #c4b5fd;
+    background: rgba(139, 92, 246, 0.22);
+    border-color: rgba(167, 139, 250, 0.45);
 }
 
 /* ─── FEATURE ROW (Book / Course) ────────────────────── */
